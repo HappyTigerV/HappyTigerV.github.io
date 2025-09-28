@@ -4,8 +4,8 @@ const translationRules = {
     phrases: {
         "id tich pipo": "学生",
         "tich pipo": "老师",
-        "id senie tich pipo": "高中生",
-        "id shunie tich pipo":"初中生",
+        "senie id tich pipo": "高中生",
+        "shunie id tich pipo":"初中生",
         "tich loc": "学校",
         "id tich": "学习"
         
@@ -23,7 +23,9 @@ const translationRules = {
         "de": "的",
         "lof": "爱",
         "Inglis": "英语",
-        "bi": "是"
+        "bi": "是",
+        "senie": "高级",
+        "shunie": "初级"
   
     },
     
