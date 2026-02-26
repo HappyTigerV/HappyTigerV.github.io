@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 木</title>
+    <style>
+        /* 全局样式重置，保证简约风格 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* 页面主体容器，居中展示 */
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        /* 等式行样式，弹性布局实现左右对齐 */
+        .equation-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+            font-size: 20px;
+        }
+
+        /* 时间显示框样式 */
+        .time-box {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+        }
+
+        
+        .wood-red {
+            color: red;
+        }
+
+        
+        .strike-through {
+            text-decoration: line-through;
+        }
+
+        
+        .underlined-num {
+            text-decoration: underline;
+            margin: 0 4px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="equation-row">
+            <div class="time-box" id="timeDisplay"></div>
+            =
+            <div>
+                <span class="underlined-num">3</span>
+                <span class="underlined-num">1</span>
+                <span class="underlined-num">2</span>
+            </div>
+        </div>
+
+        
+        <div class="equation-row">
+            <div>Answer</div>
+            =
+            <div>
+                <span class="underlined-num">1</span>
+                <span class="underlined-num">2</span>
+                <span class="underlined-num">3</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        
+        const timeDisplay = document.getElementById('timeDisplay');
+
+        
+        function updateTime() {
+            
+            const now = new Date();
+            
+            
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            
+            
+            const realWeekday = now.getDay();
+           
+            const weekdayText = `<span class="wood-red">木</span>曜日`;
+            
+           
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            
+            
+            const strikeClass = realWeekday !== 4 ? 'strike-through' : '';
+            
+            
+            timeDisplay.innerHTML = `
+                ${year}年${month}月${day}日 
+                <span class="${strikeClass}">${weekdayText}</span> 
+                ${hours}:${minutes}:${seconds}
+            `;
+        }
+
+       
+        updateTime();
+        
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>
